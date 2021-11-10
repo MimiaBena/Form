@@ -20,7 +20,7 @@
              $name = test_input($_POST["name"]);
              //check 
              if(!preg_match("/^[a-zA-Z-' ]*$/",$name)){
-                 $nameErr =" Only letters and white space allowed!";
+                echo $nameErr =" Only letters and white space allowed!";
              }             
          }
         if(empty($_POST["email"])){
@@ -30,7 +30,7 @@
             $email = test_input($_POST["email"]);
             //Check email adress
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $emailErr = "Invalid email format!";
+                echo $emailErr = "Invalid email format!";
                 
             }
         }
@@ -40,7 +40,7 @@
             $portfolio = test_input($_POST["portfolio"]);
             //check adress syntax
             if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$portfolio)){
-                $portfolio= "Invalid URL!";
+                echo $portfolio= "Invalid URL!";
             }
         }
         if(empty($_POST["motivation"])){
@@ -52,11 +52,7 @@
             echo $contratErr = "Contrat is required!";
         }else{
             $contrat = test_input($_POST["contrat"]); 
-        }
-            
-           
-           
-            
+        }       
                
        }
     
