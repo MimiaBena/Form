@@ -44,7 +44,7 @@
             }
         }
         if(empty($_POST["motivation"])){
-             echo $motivationErr = "";
+             echo $motivationErr = "Motivation is required!";
         }else{
             $motivation =test_input($_POST["motivation"]);
         }
@@ -68,30 +68,29 @@
 ?>
 
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-    
+   <head>
+       <title>Form</title>
+    </head>
     <body>
-        
+        <p><span>* required field</span></p>
         <h1>My Form example <span>.</span></h1>
        <div>
-           <form method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-               Name: <input type="text" name="name" value="<?php echo $name; ?>"><span>*<?php echo $nameErr; ?></span>
+           <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+               Name: <input type="text" name="name" value="<?php echo $name; ?>"><span>* <?php echo $nameErr; ?></span>
                <br><br>
-               Email: <input type="text" name="email" value="<?php echo $email; ?>" ><span>*<?php echo $emailErr; ?></span>
+               Email: <input type="text" name="email" value="<?php echo $email; ?>" ><span>* <?php echo $emailErr; ?></span>
                <br><br>
-               Portfolio: <input type="text" name="portfolio" value="<?php echo $portfolio; ?>"><?php echo $portfolioErr; ?>
+               Portfolio: <input type="text" name="portfolio" value="<?php echo $portfolio; ?>"> <?php echo $portfolioErr; ?>
                <br><br>
                Motivation: <textarea name="motivation" rows="10" cols="50"><?php echo $motivation; ?></textarea><span>*<?php echo $motivationErr; ?></span>
                <br><br>
                Contrat: <input type="radio" name="contrat" <?php if(isset($contrat) && $contrat=="CDI") echo "checked"; ?> value="CDI" >CDI
                <input type="radio" name="contrat" <?php if(isset($contrat) && $contrat=="CDD") echo "checked"; ?> value="CDD" >CDD
-               <input type="radio" name="contrat" <?php if(isset($contrat) && $contrat=="Stage") echo "checked"; ?> value="Stage" >Stage<span>*</span><?php echo $contratErr; ?>
+               <input type="radio" name="contrat" <?php if(isset($contrat) && $contrat=="Stage") echo "checked"; ?> value="Stage" >Stage<span>*<?php echo $contratErr; ?></span>
                <br><br>
-               <input type="submit" name="Submit" value="submit">
-           
-           
-           
+               <input type="submit" name="Submit" value="submit">    
            </form>
         
         
