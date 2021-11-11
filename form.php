@@ -15,22 +15,22 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
          if(empty($_POST["name"])){
-             echo $nameErr = "Name is required";     
+             $nameErr = "Name is required";     
          }else{
              $name = test_input($_POST["name"]);
              //check 
              if(!preg_match("/^[a-zA-Z-' ]*$/",$name)){
-                echo $nameErr =" Only letters and white space allowed!";
+               $nameErr =" Only letters and white space allowed!";
              }             
          }
         if(empty($_POST["email"])){
-            echo $emailErr = "Email is required";
+           $emailErr = "Email is required";
             
         }else{
             $email = test_input($_POST["email"]);
             //Check email adress
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                echo $emailErr = "Invalid email format!";
+               $emailErr = "Invalid email format!";
                 
             }
         }
@@ -40,16 +40,16 @@
             $portfolio = test_input($_POST["portfolio"]);
             //check adress syntax
             if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$portfolio)){
-                echo $portfolio= "Invalid URL!";
+                 $portfolio= "Invalid URL!";
             }
         }
         if(empty($_POST["motivation"])){
-             echo $motivationErr = "Motivation is required!";
+            $motivationErr = "Motivation is required!";
         }else{
             $motivation =test_input($_POST["motivation"]);
         }
         if(empty($_POST["contrat"])){
-            echo $contratErr = "Contrat is required!";
+            $contratErr = "Contrat is required!";
         }else{
             $contrat = test_input($_POST["contrat"]); 
         }       
