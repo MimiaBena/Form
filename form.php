@@ -40,13 +40,13 @@
             $portfolio = test_input($_POST["portfolio"]);
             //check adress syntax
             if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$portfolio)){
-                 $portfolio= "Invalid URL! ";
+                 $portfolio= "Invalid URL!";
             }
         }
         if(empty($_POST["motivation"])){
-            motivationErr = "Motivation is required!";
+            $motivationErr = "Motivation is required!";
         }else{
-            $motivation =test_input($_POST["motivation"]);
+            $motivation = test_input($_POST["motivation"]);
         }
         if(empty($_POST["contrat"])){
             $contratErr = "Contrat is required!";
